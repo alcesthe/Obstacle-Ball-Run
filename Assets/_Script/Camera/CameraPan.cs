@@ -1,21 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
 
-public class Player : MonoBehaviour
+public class CameraPan : MonoBehaviour
 {
+    private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Test
-        Debug.Log(CrossPlatformInputManager.GetAxis("RHoriz"));
-        Debug.Log(CrossPlatformInputManager.GetAxis("RVert"));
+        transform.LookAt(player.transform);
     }
 }
