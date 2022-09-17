@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public bool recording;
     private bool isPause = false;
     private float fixedDeltaTime;
 
@@ -33,15 +32,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame 
     void Update()
     {
-        if (CrossPlatformInputManager.GetButton("Fire1"))
-        {
-            recording = false;
-        }
-        else
-        {
-            recording = true;
-        }
-
         if (Input.GetButtonDown("Cancel")){
             TogglePauseGame();
         }
@@ -53,6 +43,7 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
             Time.fixedDeltaTime = 0;
+            Debug.LogWarning("ADD PAUSE SCREEN");
         } else
         {
             Time.timeScale = 1;

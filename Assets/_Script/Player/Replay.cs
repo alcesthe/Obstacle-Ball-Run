@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Replay : MonoBehaviour
 {
-    private const int BUFFER_FRAMES = 1000;
+    private const int BUFFER_FRAMES = 200;
     private MyKeyFrame[] keyFrames = new MyKeyFrame[BUFFER_FRAMES];
     private const float SMOOTH_SPEED = 0.125f;
 
@@ -19,13 +20,13 @@ public class Replay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.recording)
+        if (CrossPlatformInputManager.GetButton("Fire1"))
         {
-            Record();
+            PlayBack();
         }
         else
         {
-            PlayBack();
+            Record();
         }
         
     }
