@@ -24,8 +24,8 @@ public class SelfieStick : MonoBehaviour
         armRotation.y += CrossPlatformInputManager.GetAxis("RHoriz") * panSpeed;
         armRotation.x += CrossPlatformInputManager.GetAxis("RVert") * panSpeed;
 
-        transform.position = Vector3.Lerp(transform.position, player.transform.position, SMOOTH_SPEED);
-        //transform.position = player.transform.position;
+        //transform.position = Vector3.Lerp(transform.position, player.transform.position, SMOOTH_SPEED);
+        transform.position = player.transform.position;
         transform.rotation = Quaternion.Euler(armRotation);
     }
 

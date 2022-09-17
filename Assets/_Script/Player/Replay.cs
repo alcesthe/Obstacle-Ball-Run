@@ -46,7 +46,6 @@ public class Replay : MonoBehaviour
         int frame = Time.frameCount % BUFFER_FRAMES;
 
         transform.position = Vector3.Lerp(transform.position, keyFrames[frame].pos, SMOOTH_SPEED);
-        //transform.position = keyFrames[frame].pos;
         transform.rotation = keyFrames[frame].rot;
     }
 }
