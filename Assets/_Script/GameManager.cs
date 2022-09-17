@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    private bool isPause = false;
+    public bool isPause = false;
     private float fixedDeltaTime;
 
     private void Awake()
@@ -37,13 +37,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void TogglePauseGame()
+    public void TogglePauseGame()
     {
         if (isPause = !isPause)
         {
             Time.timeScale = 0;
             Time.fixedDeltaTime = 0;
-            Debug.LogWarning("ADD PAUSE SCREEN");
+            Debug.Log("ADD PAUSE SCREEN");
         } else
         {
             Time.timeScale = 1;
