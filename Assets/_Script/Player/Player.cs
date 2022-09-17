@@ -14,8 +14,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Test
-        Debug.Log(CrossPlatformInputManager.GetAxis("RHoriz"));
-        Debug.Log(CrossPlatformInputManager.GetAxis("RVert"));
+
     }
 }

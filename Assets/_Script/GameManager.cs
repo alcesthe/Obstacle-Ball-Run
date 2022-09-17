@@ -6,9 +6,25 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     public bool recording;
     private bool isPause = false;
     private float fixedDeltaTime;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        
+    }
 
     private void Start()
     {

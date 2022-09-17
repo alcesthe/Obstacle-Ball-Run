@@ -412,7 +412,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152531602}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb2dc2202d719c84580a092e4d1ca1cd, type: 3}
   m_Name: 
@@ -800,8 +800,44 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5788243769745106874, guid: 563114bf765b76942bfa031431b1a243, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.1813078
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788243769745106874, guid: 563114bf765b76942bfa031431b1a243, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.4193912
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788243769745106874, guid: 563114bf765b76942bfa031431b1a243, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.303757
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788243769745106874, guid: 563114bf765b76942bfa031431b1a243, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.9597326
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788243769745106874, guid: 563114bf765b76942bfa031431b1a243, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.25097108
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788243769745106874, guid: 563114bf765b76942bfa031431b1a243, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.09575627
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788243769745106874, guid: 563114bf765b76942bfa031431b1a243, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.08220442
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788243769745106879, guid: 563114bf765b76942bfa031431b1a243, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5788243771243282333, guid: 563114bf765b76942bfa031431b1a243, type: 3}
       propertyPath: panSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788243771243282333, guid: 563114bf765b76942bfa031431b1a243, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5788243771676198803, guid: 563114bf765b76942bfa031431b1a243, type: 3}

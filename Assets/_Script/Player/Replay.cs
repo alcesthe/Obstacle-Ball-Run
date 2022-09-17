@@ -6,21 +6,20 @@ public class Replay : MonoBehaviour
 {
     private const int BUFFER_FRAMES = 1000;
     private MyKeyFrame[] keyFrames = new MyKeyFrame[BUFFER_FRAMES];
+    private const float SMOOTH_SPEED = 0.125f;
 
     private Rigidbody rigidbody;
-    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.recording)
+        if (GameManager.instance.recording)
         {
             Record();
         }
@@ -37,6 +36,7 @@ public class Replay : MonoBehaviour
         int frame = Time.frameCount % BUFFER_FRAMES;
         float time = Time.time;
 
+
         keyFrames[frame] = new MyKeyFrame(time, transform.position, transform.rotation);
     }
 
@@ -45,8 +45,8 @@ public class Replay : MonoBehaviour
         rigidbody.isKinematic = true;
         int frame = Time.frameCount % BUFFER_FRAMES;
 
-        Debug.Log("Reading frame " + frame);
-        transform.position = keyFrames[frame].pos;
+        transform.position = Vector3.Lerp(transform.position, keyFrames[frame].pos, SMOOTH_SPEED);
+        //transform.position = keyFrames[frame].pos;
         transform.rotation = keyFrames[frame].rot;
     }
 }
