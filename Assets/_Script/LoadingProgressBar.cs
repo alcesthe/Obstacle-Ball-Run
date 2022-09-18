@@ -14,7 +14,6 @@ public class LoadingProgressBar : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(Loader.GetLoadingProgress());
         image.fillAmount = Loader.GetLoadingProgress();
     }
 }

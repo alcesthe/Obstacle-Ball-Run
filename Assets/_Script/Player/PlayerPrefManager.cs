@@ -3,11 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerPrefManager : MonoBehaviour
+public static class PlayerPrefManager
 {
     const string MASTER_VOLUME_KEY = "master_volume";
     const string DIFFICULTY_KEY = "difficulty";
     const string LEVEL_KEY = "level_unlocked_";
+    const string INVERT_VIEW_KEY = "invert_view";
+
+
+    public static void SetInvertView(int value)
+    {
+        PlayerPrefs.SetInt(INVERT_VIEW_KEY,value);
+    }
+
+    public static bool GetInvertView()
+    {
+        var isInvert = false;
+        return isInvert = PlayerPrefs.GetInt(INVERT_VIEW_KEY) == 1 ? true : false;
+    }
 
     public static void SetMasterVolume (float volume)
     {

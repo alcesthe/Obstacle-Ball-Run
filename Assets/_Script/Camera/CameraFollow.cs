@@ -18,8 +18,18 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        offset.x = Mathf.Clamp(offset.x + (CrossPlatformInputManager.GetAxis("RHoriz") * panSpeed), -10, 10);
-        offset.y = Mathf.Clamp(offset.y + (CrossPlatformInputManager.GetAxis("RVert") * panSpeed), 0, 10);
+        int inverted;
+        if (PlayerPrefManager.GetInvertView())
+        {
+            inverted = -1;
+        }
+        else
+        {
+            inverted = 1;
+        }
+
+        offset.x = Mathf.Clamp(offset.x + (CrossPlatformInputManager.GetAxis("RHoriz") * panSpeed * inverted), -10, 10);
+        offset.y = Mathf.Clamp(offset.y + (CrossPlatformInputManager.GetAxis("RVert") * panSpeed * inverted), 0, 10);
 
         Vector3 desiredPosition = player.transform.position + offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, 1);
