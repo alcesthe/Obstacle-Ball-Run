@@ -14,7 +14,13 @@ public static class Loader
         SelectLevel,
         Option,
         Loading,
-        Level1,
+        Level_1,
+        Level_2,
+        Level_3,
+        Level_4,
+        Level_5,
+        Level_6,
+        Level_7,
     }
 
     private static Action onLoaderCallback;
