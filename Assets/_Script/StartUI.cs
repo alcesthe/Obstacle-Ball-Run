@@ -10,7 +10,7 @@ public class StartUI : MonoBehaviour
         // Start Button
         transform.Find("Start Button").GetComponent<Button>().onClick.AddListener(delegate 
         {
-            Loader.LoadNextScene();
+            Loader.Load(Loader.Scene.SelectLevel);
         });
 
         // Option Button

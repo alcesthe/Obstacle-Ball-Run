@@ -38,7 +38,7 @@ public static class PlayerPrefManager
         return PlayerPrefs.GetFloat(MASTER_VOLUME_KEY);
     }
 
-    public static void UnlockedLevel(int level)
+    public static void UnlockLevel(int level)
     {
         if (level <= SceneManager.sceneCountInBuildSettings - 1)
         {
@@ -80,5 +80,14 @@ public static class PlayerPrefManager
     public static float GetDifficulty()
     {
         return PlayerPrefs.GetFloat(DIFFICULTY_KEY);
+    }
+
+    public static void ResetAllPreferences()
+    {
+        PlayerPrefs.DeleteAll();
+
+        // Default setting
+        SetMasterVolume(0.5f);
+        UnlockLevel(1); // Always open first level
     }
 }

@@ -9,7 +9,6 @@ public class SelectLevelUI : MonoBehaviour
     private bool isEndLevel = false;
     private void Awake()
     {
-        
         // Back To Home Button
         transform.Find("Back Button").GetComponent<Button>().onClick.AddListener(delegate
         {
@@ -25,12 +24,12 @@ public class SelectLevelUI : MonoBehaviour
             var button = transform.Find("Level Grid/" + buttonName);
             if (button)
             {
-                Debug.Log("Check later");
                 string sceneName = buttonName; // Need time to AddListener, when use 1 variable (not buttonName and sceneName) can cause messed up because text change each iteration
                 button.GetComponent<Button>().onClick.AddListener(delegate
                 {
                     Loader.Load((Loader.Scene)Enum.Parse(typeof(Loader.Scene), sceneName));
                 });
+                button.GetComponent<Button>().interactable = PlayerPrefManager.IsLevelUnlocked(level);
 
                 level += 1;
             } else
@@ -39,4 +38,5 @@ public class SelectLevelUI : MonoBehaviour
             }
         } 
     }
+
 }

@@ -34,6 +34,12 @@ public class OptionUI : MonoBehaviour
         {
             Loader.Load(Loader.Scene.Start);
         });
+
+        // Reset Button
+        transform.Find("Reset Button").GetComponent<Button>().onClick.AddListener(delegate
+        {
+            PlayerPrefManager.ResetAllPreferences();
+        });
     }
 
     private void Start()
