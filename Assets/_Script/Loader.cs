@@ -78,7 +78,14 @@ public static class Loader
         onLoaderCallback = () =>
         {
             GameObject loadingGameObject = new GameObject("Loading Game Object");
-            loadingGameObject.AddComponent<LoadingMonoBehaviour>().StartCoroutine(LoadSceneAsyncIndex(currentSceneIndex + 1));
+            if (SceneManager.sceneCountInBuildSettings <= currentSceneIndex + 1)
+            {
+                loadingGameObject.AddComponent<LoadingMonoBehaviour>().StartCoroutine(LoadSceneAsync(Scene.SelectLevel));
+            }
+            else
+            {
+                loadingGameObject.AddComponent<LoadingMonoBehaviour>().StartCoroutine(LoadSceneAsyncIndex(currentSceneIndex + 1));
+            }
         };
 
         // Load the loading scene

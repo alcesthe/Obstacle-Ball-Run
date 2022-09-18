@@ -9,7 +9,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public bool isPause = false;
+    public int starRate = 0;
     private float fixedDeltaTime;
+    public bool isFinish = false;
 
     private void Awake()
     {
@@ -35,6 +37,11 @@ public class GameManager : MonoBehaviour
         if (Input.GetButtonDown("Cancel")){
             TogglePauseGame();
         }
+
+        if (!isFinish)
+        {
+            CountStar();
+        }
     }
 
     public void TogglePauseGame()
@@ -43,7 +50,6 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
             Time.fixedDeltaTime = 0;
-            Debug.Log("ADD PAUSE SCREEN");
         } else
         {
             Time.timeScale = 1;
@@ -51,9 +57,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        Time.fixedDeltaTime = 0;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        Time.fixedDeltaTime = fixedDeltaTime;
+    }
+
     private void OnApplicationPause(bool pause)
     {
         isPause = pause;
+    }
+
+    public void CountStar()
+    {
+        starRate = 3; // Count star Clamp(Rounded(Total time/ Use time))
     }
 }
 
