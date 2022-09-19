@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ca761bfced94d428c424e3e56ea5e4, type: 3}
   m_Name: Level_6
   m_EditorClassIdentifier: 
-  totalTime: 15
-  windSpeed: 0
-  hammerSwingSpeed: 0
-  timeBetweenSpawnBall: 0
+  totalTime: 120
+  hammerSwingSpeed: 50
+  axeSwingSpeed: 70
+  timeBetweenSpawnBall: 1

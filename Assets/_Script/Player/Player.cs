@@ -26,9 +26,13 @@ public class Player : MonoBehaviour
     {
         if (transform.position.y <= depthToReset)
         {
-            Debug.Log("Work");
-            transform.position = startPoint;
+            Dead();
         }
+    }
+
+    public void Dead()
+    {
+        transform.position = startPoint;
     }
 
     public Vector3 GetStartPoint()

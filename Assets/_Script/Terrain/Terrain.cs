@@ -10,9 +10,4 @@ public class Terrain : MonoBehaviour
     {
         terrainCollider = GetComponent<TerrainCollider>();
     }
-
-    private void Update()
-    {
-        
-    }
 }

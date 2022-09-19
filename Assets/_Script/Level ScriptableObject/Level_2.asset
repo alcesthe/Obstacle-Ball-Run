@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level_2
   m_EditorClassIdentifier: 
   totalTime: 120
+  hammerSwingSpeed: 120
+  axeSwingSpeed: 120
   windSpeed: 0
-  hammerSwingSpeed: 0
   timeBetweenSpawnBall: 0

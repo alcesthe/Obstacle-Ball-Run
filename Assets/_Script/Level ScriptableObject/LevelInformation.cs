@@ -7,7 +7,7 @@ public class LevelInformation : ScriptableObject
 {
     // All using seconds
     public float totalTime = 180;
-    public float windSpeed = 0;
-    public float hammerSwingSpeed = 5;
-    public float timeBetweenSpawnBall = 5;
+    public float hammerSwingSpeed = 50;
+    public float axeSwingSpeed = 70;
+    public float timeBetweenSpawnBall = 2;
 }

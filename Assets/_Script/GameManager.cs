@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame 
     void Update()
     {
-        Debug.Log("Total Time: " + currentLevelInformation.totalTime);
         StartCountingTime();
         // Input
         if (Input.GetButtonDown("Cancel"))
