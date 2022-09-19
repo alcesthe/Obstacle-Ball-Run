@@ -29,14 +29,15 @@ public class SelectLevelUI : MonoBehaviour
                 {
                     Loader.Load((Loader.Scene)Enum.Parse(typeof(Loader.Scene), sceneName));
                 });
-                button.GetComponent<Button>().interactable = PlayerPrefManager.IsLevelUnlocked(level);
+                button.GetComponent<Button>().interactable = PlayerPrefManager.IsLevelUnlocked(buttonName);
 
                 level += 1;
-            } else
+            }
+            else
             {
                 isEndLevel = true;
             }
-        } 
+        }
     }
 
 }

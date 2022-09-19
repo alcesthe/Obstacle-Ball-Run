@@ -7,7 +7,7 @@ public static class PlayerPrefManager
 {
     const string MASTER_VOLUME_KEY = "master_volume";
     const string DIFFICULTY_KEY = "difficulty";
-    const string LEVEL_KEY = "level_unlocked_";
+    // const string LEVEL_KEY = "level_";
     const string INVERT_VIEW_KEY = "invert_view";
 
 
@@ -38,48 +38,17 @@ public static class PlayerPrefManager
         return PlayerPrefs.GetFloat(MASTER_VOLUME_KEY);
     }
 
-    public static void UnlockLevel(int level)
+    public static void UnlockLevel(string levelName)
     {
-        if (level <= SceneManager.sceneCountInBuildSettings - 1)
-        {
-            PlayerPrefs.SetInt(LEVEL_KEY + level.ToString(), 1);
-        } else
-        {
-            Debug.LogError("Trying to unlock level not in build order");
-        }
+        PlayerPrefs.SetInt(levelName, 1);
     }
 
-    public static bool IsLevelUnlocked(int level)
+    public static bool IsLevelUnlocked(string levelName)
     {
-        int levelValue = PlayerPrefs.GetInt(LEVEL_KEY + level.ToString());
+        int levelValue = PlayerPrefs.GetInt(levelName);
         bool isLevelUnlocked = (levelValue == 1);
 
-        if (level <= SceneManager.sceneCountInBuildSettings - 1)
-        {
-            return isLevelUnlocked;
-        }
-        else
-        {
-            Debug.LogError("Trying to query level not in build order");
-            return false;
-        }
-    }
-
-    public static void SetDifficulty(float difficulty)
-    {
-        if (difficulty >= 0f && difficulty <= 1f)
-        {
-            PlayerPrefs.SetFloat(DIFFICULTY_KEY, difficulty);
-        }
-        else
-        {
-            Debug.LogError("Difficulty out of range !");
-        }
-    }
-
-    public static float GetDifficulty()
-    {
-        return PlayerPrefs.GetFloat(DIFFICULTY_KEY);
+        return isLevelUnlocked;
     }
 
     public static void ResetAllPreferences()
@@ -88,6 +57,6 @@ public static class PlayerPrefManager
 
         // Default setting
         SetMasterVolume(0.5f);
-        UnlockLevel(1); // Always open first level
+        UnlockLevel("Level_1"); // Always open first level
     }
 }

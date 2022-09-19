@@ -8,6 +8,7 @@ public class WinPanelUI : MonoBehaviour
     [SerializeField] Sprite starVisible;
     [SerializeField] Sprite starInvisible;
     [SerializeField] GameObject stars;
+    [SerializeField] Text yourTimeText;
 
     private void Awake()
     {
@@ -28,15 +29,29 @@ public class WinPanelUI : MonoBehaviour
 
     private void Update()
     {
-        int starRate = GameManager.instance.starRate;
-        int i = 1; // Start from one to three star
-        foreach (Transform star in stars.transform)
-        {
-            star.GetComponent<Image>().sprite = starVisible;
+        SetStarUI();
+    }
 
-            i++;
-            if (i > starRate){ break; }
+    private void SetStarUI()
+    {
+        int starRate = GameManager.instance.starRate;
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (i < starRate)
+            {
+                stars.transform.GetChild(i).GetComponent<Image>().sprite = starVisible;
+            }
+            else
+            {
+                stars.transform.GetChild(i).GetComponent<Image>().sprite = starInvisible;
+            } 
         }
+    }
+
+    public void SetTextYourTimeUI(string time)
+    {
+        yourTimeText.text = "Your time: " + time;
     }
 
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LevelUI : MonoBehaviour
 {
     [SerializeField] GameObject pausePanel;
+    [SerializeField] Text timePassText;
     private void Awake()
     {
         // Pause Button
@@ -14,6 +15,11 @@ public class LevelUI : MonoBehaviour
             GameManager.instance.PauseGame();
             pausePanel.SetActive(true);
         });
+    }
+
+    public void SetTextTimePassText(string time)
+    {
+        timePassText.text = "Time Pass: " + time;
     }
 
 }
