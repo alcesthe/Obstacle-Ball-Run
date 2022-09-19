@@ -2,19 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using System;
 
 public class Replay : MonoBehaviour
 {
-    private const int BUFFER_FRAMES = 200;
+    private const int BUFFER_FRAMES = 100;
     private MyKeyFrame[] keyFrames = new MyKeyFrame[BUFFER_FRAMES];
     private const float SMOOTH_SPEED = 0.125f;
 
     private Rigidbody rigidbody;
+    private Player player;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        player = GetComponent<Player>();
+
+        for (int i=0; i < BUFFER_FRAMES; i++)
+        {
+            keyFrames[i] = new MyKeyFrame(Time.time, player.startPoint, transform.rotation);
+        }
     }
 
     // Update is called once per frame
@@ -36,7 +44,6 @@ public class Replay : MonoBehaviour
         rigidbody.isKinematic = false;
         int frame = Time.frameCount % BUFFER_FRAMES;
         float time = Time.time;
-
 
         keyFrames[frame] = new MyKeyFrame(time, transform.position, transform.rotation);
     }

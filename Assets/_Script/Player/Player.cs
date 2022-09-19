@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float depthToReset = 10.0f; // When player reach below this point of Y axis, reset player to start point
     private GameObject terrain;
-    private Vector3 startPoint;
+    public Vector3 startPoint;
     void Start()
     {
         startPoint = transform.position;

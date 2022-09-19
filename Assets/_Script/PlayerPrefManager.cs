@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public static class PlayerPrefManager
 {
-    const string MASTER_VOLUME_KEY = "master_volume";
-    const string DIFFICULTY_KEY = "difficulty";
+    public const string MASTER_VOLUME_KEY = "master_volume";
+    public const string DIFFICULTY_KEY = "difficulty";
     // const string LEVEL_KEY = "level_";
-    const string INVERT_VIEW_KEY = "invert_view";
+    public const string INVERT_VIEW_KEY = "invert_view";
+    public const string FIRST_TIME_OPEN_KEY = "first_time";
 
 
     public static void SetInvertView(int value)

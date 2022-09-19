@@ -16,7 +16,7 @@ public class SelectLevelUI : MonoBehaviour
         });
 
         // Levels Button
-        int level = 1; // start from level 1
+        int level = 1;
         string buttonName; // The enum Scene name, Button name, Loader.Scene name must be match the name. Because this use string reference
         while (!isEndLevel)
         {
@@ -29,8 +29,15 @@ public class SelectLevelUI : MonoBehaviour
                 {
                     Loader.Load((Loader.Scene)Enum.Parse(typeof(Loader.Scene), sceneName));
                 });
-                button.GetComponent<Button>().interactable = PlayerPrefManager.IsLevelUnlocked(buttonName);
 
+                if (buttonName == "Level_1") // Always open Level 1
+                {
+                    button.GetComponent<Button>().interactable = true;
+                }
+                else
+                {
+                    button.GetComponent<Button>().interactable = PlayerPrefManager.IsLevelUnlocked(buttonName);
+                }
                 level += 1;
             }
             else
