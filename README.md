@@ -1,6 +1,4 @@
 # Obstacle Ball Run
- 
-This is my second project.
 
 This is a hyper casual type game. The game's rules are straightforward: control the ball as it moves toward the goal while dodging obstacles in your path. The rating is based on your time to complete, the more faster you finish more star you get.
 
